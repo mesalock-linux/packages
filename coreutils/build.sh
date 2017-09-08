@@ -12,6 +12,7 @@ configure() {
 }
 
 compile() {
+  :
 }
 
 install() {
