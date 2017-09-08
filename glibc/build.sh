@@ -45,5 +45,12 @@ compile() {
 
 install() {
   cp glibc-build/install-root/lib/{libc.so.6,libdl.so.2,libm.so.6,libpthread.so.0,librt.so.1,ld-linux-x86-64.so.2} $ROOTFS/lib/
+  # Do not strip the following files for improved debugging support
+  # ("improved" as in not breaking gdb and valgrind...):
+  #   ld-${pkgver}.so
+  #   libc-${pkgver}.so
+  #   libpthread-${pkgver}.so
+  #   libthread_db-1.0.so
+  strip --strip-unneeded $ROOTFS/lib/{libdl.so.2,libm.so.6,librt.so.1}
   ln -srf $ROOTFS/lib/ld-linux-x86-64.so.2 $ROOTFS/lib64/ld-linux-x86-64.so.2
 }
