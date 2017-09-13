@@ -2,19 +2,20 @@ pkgname=glibc
 pkgver=2.26
 
 prepare() {
+  cd $srcdir
   wget -qO- "http://ftp.gnu.org/gnu/glibc/glibc-$pkgver.tar.gz"  | tar zxf -
 }
 
-configure() {
-  mkdir -p glibc-build && cd glibc-build
-  echo "slibdir=/lib" >> configparms
-  echo "rtlddir=/lib" >> configparms
-  echo "sbindir=/bin" >> configparms
-  echo "rootsbindir=/bin" >> configparms
-  ../${pkgname}-${pkgver}/configure \
-      --prefix= \
-      --libdir=/lib \
-      --libexecdir=/lib \
+build() {
+  cd $builddir
+  echo "slibdir=/usr/lib" >> configparms
+  echo "rtlddir=/usr/lib" >> configparms
+  echo "sbindir=/usr/bin" >> configparms
+  echo "rootsbindir=/usr/bin" >> configparms
+  $srcdir/${pkgname}-${pkgver}/configure \
+      --prefix=/usr \
+      --libdir=/usr/lib \
+      --libexecdir=/usr/lib \
       --enable-add-ons \
       --enable-bind-now \
       --disable-profile \
@@ -23,10 +24,6 @@ configure() {
       --enable-lock-elision \
       --enable-multi-arch \
       --disable-werror
-}
-
-compile() {
-  cd glibc-build
 
   # build libraries with fortify disabled
   echo "build-programs=no" >> configparms
@@ -43,14 +40,13 @@ compile() {
   make install_root=$(pwd)/install-root install
 }
 
-install() {
-  cp glibc-build/install-root/lib/{libc.so.6,libdl.so.2,libm.so.6,libpthread.so.0,librt.so.1,ld-linux-x86-64.so.2} $ROOTFS/lib/
+package() {
+  install -D $builddir/install-root/usr/lib/{libc.so.6,libdl.so.2,libm.so.6,libpthread.so.0,librt.so.1,ld-linux-x86-64.so.2} -t $pkgdir/usr/lib/
   # Do not strip the following files for improved debugging support
   # ("improved" as in not breaking gdb and valgrind...):
   #   ld-${pkgver}.so
   #   libc-${pkgver}.so
   #   libpthread-${pkgver}.so
   #   libthread_db-1.0.so
-  strip --strip-unneeded $ROOTFS/lib/{libdl.so.2,libm.so.6,librt.so.1}
-  ln -srf $ROOTFS/lib/ld-linux-x86-64.so.2 $ROOTFS/lib64/ld-linux-x86-64.so.2
+  strip --strip-unneeded $pkgdir/usr/lib/{libdl.so.2,libm.so.6,librt.so.1}
 }
