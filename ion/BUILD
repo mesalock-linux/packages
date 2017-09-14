@@ -8,10 +8,9 @@ prepare() {
 build() {
   cd $srcdir
   cargo update -p liner # make sure liner is updated regardless of Cargo.lock
-  cargo build --release
+  cargo install --root $pkgdir
 }
 
 package() {
-  install -D $srcdir/target/release/ion -t $pkgdir/bin
   ln -s ion $pkgdir/bin/sh
 }

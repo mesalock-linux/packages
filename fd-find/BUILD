@@ -6,9 +6,5 @@ prepare() {
 }
 
 build() {
-  cd $srcdir && cargo build --release
-}
-
-package() {
-  install -D $srcdir/target/release/fd -t $pkgdir/bin/
+  cd $srcdir && cargo install --root $pkgdir
 }
