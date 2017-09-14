@@ -13,4 +13,5 @@ build() {
 
 package() {
   install -D $srcdir/target/release/ion -t $pkgdir/bin
+  ln -s ion $pkgdir/bin/sh
 }
