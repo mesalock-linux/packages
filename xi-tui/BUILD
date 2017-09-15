@@ -6,10 +6,10 @@ prepare() {
 }
 
 build() {
-  cd $srcdir && cargo build
+  cd $srcdir && cargo build --release
 }
 
 package() {
   install -D $srcdir/log_config.yaml -t $pkgdir/root
-  install -D $srcdir/target/debug/xi-tui -t $pkgdir/bin/
+  install -D $srcdir/target/release/xi-tui -t $pkgdir/bin/
 }
