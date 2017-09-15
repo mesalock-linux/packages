@@ -1,4 +1,4 @@
-pkgname=coreutils
+pkgname=uutils
 pkgver=
 
 prepare() {
