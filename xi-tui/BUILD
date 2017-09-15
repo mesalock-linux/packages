@@ -1,0 +1,15 @@
+pkgname=xi-tui
+pkgver=
+
+prepare() {
+  git clone https://github.com/little-dude/xi-tui.git $srcdir
+}
+
+build() {
+  cd $srcdir && cargo build
+}
+
+package() {
+  install -D $srcdir/log_config.yaml -t $pkgdir/root
+  install -D $srcdir/target/debug/xi-tui -t $pkgdir/bin/
+}
