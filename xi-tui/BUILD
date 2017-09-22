@@ -10,6 +10,6 @@ build() {
 }
 
 package() {
-  install -D $srcdir/log_config.yaml -t $pkgdir/root
+  # install -D $srcdir/log_config.yaml -t $pkgdir/root
   install -D $srcdir/target/release/xi-tui -t $pkgdir/bin/
 }
