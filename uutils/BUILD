@@ -13,5 +13,6 @@ build() {
 
 package() {
   cd $srcdir
-  make MULTICALL=y PREFIX=$pkgdir install
+  # skip hashsum because it depends on rust-crypto (with C library)
+  make MULTICALL=y SKIP_UTILS=hashsum PREFIX=$pkgdir install
 }
