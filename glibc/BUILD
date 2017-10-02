@@ -36,13 +36,13 @@ build() {
   echo "CXX += -D_FORTIFY_SOURCE=2" >> configparms
   make
 
-  # mkdir -p install-root
-  # make install_root=$(pwd)/install-root install
-  make install_root=$pkgdir install
+  mkdir -p install-root
+  make install_root=$(pwd)/install-root install
+  # make install_root=$pkgdir install
 }
 
 package() {
-  # install -D $builddir/install-root/usr/lib/{libc.so.6,libdl.so.2,libm.so.6,libpthread.so.0,librt.so.1,ld-linux-x86-64.so.2} -t $pkgdir/usr/lib/
+  install -D $builddir/install-root/usr/lib/{libc.so.6,libdl.so.2,libm.so.6,libpthread.so.0,librt.so.1,ld-linux-x86-64.so.2} -t $pkgdir/usr/lib/
   # Do not strip the following files for improved debugging support
   # ("improved" as in not breaking gdb and valgrind...):
   #   ld-${pkgver}.so
