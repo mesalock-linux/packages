@@ -1,4 +1,4 @@
-pkgname=ion
+pkgname=ion-shell
 pkgver=
 
 prepare() {
