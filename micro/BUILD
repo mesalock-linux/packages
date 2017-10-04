@@ -1,0 +1,15 @@
+pkgname=micro
+pkgver=
+
+prepare() {
+  GOPATH=$srcdir 
+  go get -d github.com/zyedidia/micro/cmd/micro
+}
+
+build() {
+  cd $srcdir/src/github.com/zyedidia/micro && make
+}
+
+package() {
+  install -D $srcdir/src/github.com/zyedidia/micro/micro -t $pkgdir/bin/
+}
