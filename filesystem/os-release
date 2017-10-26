@@ -1,0 +1,8 @@
+NAME="Mesalock Linux"
+PRETTY_NAME="Mesalock Linux"
+ID=mesalock
+ID_LIKE=mesalocklinux
+ANSI_COLOR="0;36"
+HOME_URL=""
+SUPPORT_URL=""
+BUG_REPORT_URL=""
