@@ -6,5 +6,5 @@ prepare() {
 }
 
 build() {
-  cd $srcdir && cargo install --root $pkgdir
+  cd $srcdir && cargo install --root $pkgdir && rm -f $pkgdir/.crates.toml
 }
