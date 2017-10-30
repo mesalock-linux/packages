@@ -2,7 +2,7 @@ pkgname=minit
 pkgver=
 
 prepare() {
-  git clone ssh://git@172.19.62.4:2222/mesalock-linux/minit.git $srcdir
+  git clone http://$GIT_USERNAME:$GIT_PASSWORD@172.19.62.4/mesalock-linux/minit.git $srcdir
 }
 
 build() {
