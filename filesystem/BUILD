@@ -52,10 +52,4 @@ package() {
   for d in bin etc games include lib man sbin share src; do
     install -d -m755 usr/local/$d
   done
-
-  # setup dev
-  mknod dev/console c 5 1
-  mknod dev/null c 1 3
-  mknod dev/zero c 1 5
-  mknod dev/urandom c 1 9
 }
