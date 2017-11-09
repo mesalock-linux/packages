@@ -1,4 +1,5 @@
 pkgname=filesystem
+pkgdesc="Mesalock Linux base filesystem layout"
 
 prepare() {
   cp -r $pkgrepo/$pkgname/* $srcdir

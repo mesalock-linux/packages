@@ -1,5 +1,6 @@
 pkgname=xi-core
 pkgver=
+pkgdesc="A modern editor with a backend written in Rust."
 
 prepare() {
   git clone https://github.com/google/xi-editor.git $srcdir

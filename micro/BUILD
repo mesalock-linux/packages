@@ -1,5 +1,6 @@
 pkgname=micro
 pkgver=
+pkgdesc="A modern and intuitive terminal-based text editor."
 
 prepare() {
   GOPATH=$srcdir 

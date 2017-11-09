@@ -1,5 +1,6 @@
 pkgname=gcc-libs
 pkgver=7.2.0
+pkgdesc="GLibc library, only libgcc_s.so is used"
 
 prepare() {
   cd $srcdir

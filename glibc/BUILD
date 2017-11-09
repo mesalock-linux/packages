@@ -1,5 +1,6 @@
 pkgname=glibc
 pkgver=2.26
+pkgdesc="Glibc"
 
 prepare() {
   cd $srcdir

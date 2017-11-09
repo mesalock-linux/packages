@@ -1,5 +1,6 @@
 pkgname=mgetty
 pkgver=
+pkgdesc="getty written in Rust."
 
 prepare() {
   git clone http://$GIT_USERNAME:$GIT_PASSWORD@172.19.62.4/mesalock-linux/mgetty.git $srcdir

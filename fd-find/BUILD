@@ -1,5 +1,6 @@
 pkgname=fd-find
 pkgver=
+pkgdesc="A simple, fast and user-friendly alternative to find."
 
 prepare() {
   git clone https://github.com/sharkdp/fd.git $srcdir

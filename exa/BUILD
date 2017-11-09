@@ -1,5 +1,6 @@
 pkgname=exa
 pkgver=
+pkgdesc="Replacement for 'ls' written in Rust."
 
 prepare() {
   git clone https://github.com/ogham/exa.git $srcdir

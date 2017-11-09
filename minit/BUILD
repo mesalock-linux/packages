@@ -1,5 +1,6 @@
 pkgname=minit
 pkgver=
+pkgdesc="init tool written in Rust."
 
 prepare() {
   git clone http://$GIT_USERNAME:$GIT_PASSWORD@172.19.62.4/mesalock-linux/minit.git $srcdir

@@ -1,5 +1,6 @@
-pkgname=uutils
+pkgname=uutils-coreutils
 pkgver=
+pkgdesc="Cross-platform Rust rewrite of the GNU coreutils."
 
 prepare() {
   git clone https://github.com/uutils/coreutils.git $srcdir

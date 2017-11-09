@@ -1,5 +1,6 @@
-pkgname=findutils
+pkgname=uutils-findutils
 pkgver=
+pkgdesc="Rust implementation of findutils"
 
 prepare() {
   git clone https://github.com/uutils/findutils.git $srcdir

@@ -1,5 +1,6 @@
 pkgname=syslinux
 pkgver=6.04-pre1
+pkgdesc="Syslinux bootloader"
 
 prepare() {
   cd $srcdir

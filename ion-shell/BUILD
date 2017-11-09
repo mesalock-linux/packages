@@ -1,5 +1,6 @@
 pkgname=ion-shell
 pkgver=
+pkgdesc="ion shell."
 
 prepare() {
   git clone https://github.com/redox-os/ion.git $srcdir

@@ -1,4 +1,5 @@
 pkgname=init
+pkgdesc="init script"
 
 prepare() {
   cp -r $pkgrepo/$pkgname/* $srcdir
