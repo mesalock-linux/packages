@@ -3,7 +3,7 @@ pkgver=
 pkgdesc="A modern and intuitive terminal-based text editor."
 
 prepare() {
-  GOPATH=$srcdir 
+  export GOPATH=$srcdir 
   go get -d github.com/zyedidia/micro/cmd/micro
 }
 
