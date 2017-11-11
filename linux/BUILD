@@ -1,6 +1,7 @@
 pkgname=linux
 pkgver=4.9.58
 pkgdesc="Linux kernel"
+license=(GPL2)
 
 prepare() {
   cd $srcdir

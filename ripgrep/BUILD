@@ -1,6 +1,7 @@
 pkgname=ripgrep
 pkgver=
 pkgdesc="ripgrep combines the usability of The Silver Searcher with the raw speed of grep."
+license=(MIT Unlicense)
 
 prepare() {
   git clone https://github.com/BurntSushi/ripgrep.git $srcdir

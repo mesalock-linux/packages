@@ -1,6 +1,7 @@
 pkgname=xi-tui
 pkgver=
 pkgdesc="a tui frontend for Xi."
+license=(MIT)
 
 prepare() {
   git clone https://github.com/little-dude/xi-tui.git $srcdir

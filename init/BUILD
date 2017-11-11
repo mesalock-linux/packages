@@ -1,5 +1,6 @@
 pkgname=init
 pkgdesc="init script"
+license=(BSD)
 
 prepare() {
   cp -r $pkgrepo/$pkgname/* $srcdir

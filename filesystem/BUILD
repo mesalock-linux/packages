@@ -1,5 +1,6 @@
 pkgname=filesystem
 pkgdesc="Mesalock Linux base filesystem layout"
+license=(BSD)
 
 prepare() {
   cp -r $pkgrepo/$pkgname/* $srcdir

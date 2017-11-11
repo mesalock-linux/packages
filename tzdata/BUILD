@@ -2,6 +2,7 @@ pkgname=tzdata
 pkgver=2017b
 pkgrel=1
 pkgdesc="Timezone data"
+license=(Unlicense)
 
 timezones=('africa' 'antarctica' 'asia' 'australasia'
            'europe' 'northamerica' 'southamerica'

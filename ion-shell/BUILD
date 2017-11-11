@@ -1,6 +1,7 @@
 pkgname=ion-shell
 pkgver=
 pkgdesc="ion shell."
+license=(MIT)
 
 prepare() {
   git clone https://github.com/redox-os/ion.git $srcdir

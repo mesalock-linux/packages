@@ -1,6 +1,7 @@
 pkgname=glibc
 pkgver=2.26
 pkgdesc="Glibc"
+license=(GPL LGPL)
 
 prepare() {
   cd $srcdir

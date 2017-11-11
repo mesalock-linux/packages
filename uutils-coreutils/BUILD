@@ -1,6 +1,7 @@
 pkgname=uutils-coreutils
 pkgver=
 pkgdesc="Cross-platform Rust rewrite of the GNU coreutils."
+license=(MIT)
 
 prepare() {
   git clone https://github.com/uutils/coreutils.git $srcdir

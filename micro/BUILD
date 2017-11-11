@@ -1,6 +1,7 @@
 pkgname=micro
 pkgver=
 pkgdesc="A modern and intuitive terminal-based text editor."
+license=(MIT)
 
 prepare() {
   export GOPATH=$srcdir 

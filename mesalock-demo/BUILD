@@ -1,6 +1,7 @@
 pkgname=mesalock-demo
 pkgver=
 pkgdesc="Several demos of Mesalock Linux"
+license=(BSD)
 
 prepare() {
   # Rocket
