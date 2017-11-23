@@ -1,6 +1,7 @@
 pkgname=busybox
 pkgver=1.27.2
-pkgdesc="BusyBox: The Swiss Army Knife of Embedded Linux. Mesalock Linux uses BusyBox for testing."
+pkgdesc="BusyBox: The Swiss Army Knife of Embedded Linux. Mesalock Linux uses BusyBox for testing only."
+url="https://busybox.net"
 license=(GPL2)
 
 prepare() {

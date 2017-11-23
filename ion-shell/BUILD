@@ -1,10 +1,11 @@
 pkgname=ion-shell
 pkgver=
-pkgdesc="ion shell."
+pkgdesc="ion shell, a shell written in Rust."
+url="https://github.com/redox-os/ion"
 license=(MIT)
 
 prepare() {
-  git clone https://github.com/redox-os/ion.git "$srcdir"
+  git clone -b 1.0.5 https://github.com/redox-os/ion.git "$srcdir"
 }
 
 build() {

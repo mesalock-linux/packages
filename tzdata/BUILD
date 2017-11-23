@@ -1,6 +1,5 @@
 pkgname=tzdata
 pkgver=2017b
-pkgrel=1
 pkgdesc="Timezone data"
 license=(Unlicense)
 

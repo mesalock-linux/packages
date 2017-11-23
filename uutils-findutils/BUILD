@@ -1,10 +1,11 @@
 pkgname=uutils-findutils
 pkgver=
 pkgdesc="Rust implementation of findutils"
+url="https://github.com/uutils/findutils"
 license=(MIT)
 
 prepare() {
-  git clone https://github.com/uutils/findutils.git "$srcdir"
+  git clone -b 2e6a268fa5682fc9ee07f8f8b9634051f6c0ef6f https://github.com/uutils/findutils.git "$srcdir"
 }
 
 build() {

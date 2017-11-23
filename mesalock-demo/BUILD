@@ -5,7 +5,7 @@ license=(BSD)
 
 prepare() {
   # Rocket
-  git clone https://github.com/SergioBenitez/Rocket.git "$srcdir"
+  git clone -b v0.3.3 https://github.com/SergioBenitez/Rocket.git "$srcdir"
   cp -r "$pkgrepo"/"$pkgname"/Rocket.toml "$srcdir"
 }
 

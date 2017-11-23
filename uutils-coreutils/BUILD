@@ -1,10 +1,11 @@
 pkgname=uutils-coreutils
 pkgver=
 pkgdesc="Cross-platform Rust rewrite of the GNU coreutils."
+url="https://github.com/uutils/coreutils"
 license=(MIT)
 
 prepare() {
-  git clone https://github.com/uutils/coreutils.git "$srcdir"
+  git clone -b 4e034b02bd959e7a66eacbfdf16882814e8cbccb https://github.com/uutils/coreutils.git "$srcdir"
   cp "$pkgrepo"/"$pkgname"/001-makefile-libstdbuf.patch "$srcdir"
 }
 

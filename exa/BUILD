@@ -1,10 +1,11 @@
 pkgname=exa
-pkgver=
+pkgver=0.8.0
 pkgdesc="Replacement for 'ls' written in Rust."
+url="https://the.exa.website/"
 license=(MIT)
 
 prepare() {
-  git clone https://github.com/ogham/exa.git "$srcdir"
+  git clone -b v0.8.0 https://github.com/ogham/exa.git "$srcdir"
 }
 
 build() {
