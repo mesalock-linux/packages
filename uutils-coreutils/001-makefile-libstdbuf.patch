@@ -1,0 +1,14 @@
+diff --git a/Makefile b/Makefile
+index 6b650b9..3f1b55c 100644
+--- a/Makefile
++++ b/Makefile
+@@ -246,7 +246,7 @@ endif
+ # Libaries to install
+ LIBS :=
+ ifneq (,$(findstring stdbuf, $(INSTALLEES)))
+-LIBS += libstdbuf.$(DYLIB_EXT)
++# LIBS += libstdbuf.$(DYLIB_EXT)
+ endif
+
+ all: build
+ 
