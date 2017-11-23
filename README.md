@@ -1,4 +1,4 @@
-# MesaLock Linux Package
+# MesaLock Linux Packages
 
 To ensure the safty and security of the user space environment, unlike other
 Linux distributions, packages in MesaLock Linux are written in memory-safe
@@ -43,3 +43,11 @@ package() {
   install -D "$srcdir"/target/release/rg -t "$pkgdir"/bin/
 }
 ```
+
+## Maintainer
+
+Mingshen Sun `<sunmingshen@baidu.com>`
+
+## License
+
+The MesaLock Linux Packages project is provided under the BSD license.
