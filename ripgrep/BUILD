@@ -4,13 +4,13 @@ pkgdesc="ripgrep combines the usability of The Silver Searcher with the raw spee
 license=(MIT Unlicense)
 
 prepare() {
-  git clone https://github.com/BurntSushi/ripgrep.git $srcdir
+  git clone https://github.com/BurntSushi/ripgrep.git "$srcdir"
 }
 
 build() {
-  cd $srcdir && ./compile
+  cd "$srcdir" && ./compile
 }
 
 package() {
-  install -D $srcdir/target/release/rg -t $pkgdir/bin/
+  install -D "$srcdir"/target/release/rg -t "$pkgdir"/bin/
 }

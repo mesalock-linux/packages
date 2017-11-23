@@ -3,7 +3,7 @@ pkgdesc="Mesalock Linux base filesystem layout"
 license=(BSD)
 
 prepare() {
-  cp -r $pkgrepo/$pkgname/* $srcdir
+  cp -r "$pkgrepo/$pkgname"/* $srcdir
 }
 
 package() {

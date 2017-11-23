@@ -4,15 +4,15 @@ pkgdesc="ion shell."
 license=(MIT)
 
 prepare() {
-  git clone https://github.com/redox-os/ion.git $srcdir
+  git clone https://github.com/redox-os/ion.git "$srcdir"
 }
 
 build() {
-  cd $srcdir
+  cd "$srcdir"
   cargo update -p liner # make sure liner is updated regardless of Cargo.lock
-  cargo install --root $pkgdir && rm -f $pkgdir/.crates.toml
+  cargo install --root "$pkgdir" && rm -f "$pkgdir"/.crates.toml
 }
 
 package() {
-  ln -s ion $pkgdir/bin/sh
+  ln -s ion "$pkgdir"/bin/sh
 }

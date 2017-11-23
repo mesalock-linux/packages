@@ -4,17 +4,17 @@ pkgdesc="Glibc"
 license=(GPL LGPL)
 
 prepare() {
-  cd $srcdir
+  cd "$srcdir"
   wget -qO- "http://ftp.gnu.org/gnu/glibc/glibc-$pkgver.tar.gz"  | tar zxf -
 }
 
 build() {
-  cd $builddir
+  cd "$builddir"
   echo "slibdir=/usr/lib" >> configparms
   echo "rtlddir=/usr/lib" >> configparms
   echo "sbindir=/usr/bin" >> configparms
   echo "rootsbindir=/usr/bin" >> configparms
-  $srcdir/${pkgname}-${pkgver}/configure \
+  "$srcdir/${pkgname}-${pkgver}/configure" \
       --prefix=/usr \
       --libdir=/usr/lib \
       --libexecdir=/usr/lib \
@@ -40,7 +40,7 @@ build() {
 
   # mkdir -p install-root
   # make install_root=$(pwd)/install-root install
-  make install_root=$pkgdir install
+  make install_root="$pkgdir" install
 }
 
 package() {
@@ -51,5 +51,5 @@ package() {
   #   libc-${pkgver}.so
   #   libpthread-${pkgver}.so
   #   libthread_db-1.0.so
-  strip --strip-unneeded $pkgdir/usr/lib/{libdl.so.2,libm.so.6,librt.so.1}
+  strip --strip-unneeded "$pkgdir"/usr/lib/{libdl.so.2,libm.so.6,librt.so.1}
 }

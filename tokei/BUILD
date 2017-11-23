@@ -4,9 +4,9 @@ pkgdesc="A program that allows you to count your code, quickly."
 license=(MIT Apache-2.0)
 
 prepare() {
-  git clone https://github.com/Aaronepower/tokei.git $srcdir
+  git clone https://github.com/Aaronepower/tokei.git "$srcdir"
 }
 
 build() {
-  cd $srcdir && cargo install --root $pkgdir && rm -f $pkgdir/.crates.toml
+  cd "$srcdir" && cargo install --root "$pkgdir" && rm -f "$pkgdir"/.crates.toml
 }

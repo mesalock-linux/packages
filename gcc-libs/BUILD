@@ -4,13 +4,13 @@ pkgdesc="GLibc library, only libgcc_s.so is used"
 license=(GPL LGPL)
 
 prepare() {
-  cd $srcdir
+  cd "$srcdir"
   wget -qO- "ftp://ftp.gnu.org/gnu/gcc/gcc-$pkgver/gcc-$pkgver.tar.xz"  | tar xfJ -
 }
 
 build() {
-  cd $builddir
-  $srcdir/gcc-${pkgver}/configure --prefix=/usr \
+  cd "$builddir"
+  "$srcdir/gcc-${pkgver}/configure" --prefix=/usr \
       --libdir=/usr/lib \
       --libexecdir=/usr/lib \
       --mandir=/usr/share/man \
@@ -44,5 +44,5 @@ build() {
 }
 
 package() {
-  make -C $builddir/x86_64-linux-gnu/libgcc DESTDIR=$pkgdir install-shared
+  make -C "$builddir"/x86_64-linux-gnu/libgcc DESTDIR="$pkgdir" install-shared
 }
