@@ -16,7 +16,7 @@ The build tool (`mkpkg`) will call following function in order:
   3. `package()`: zip the output as a package
 
 There are several pre-defined variables:
-  - `pkgname`, `pkgver`, `pkgdesc`, `license`: package related information
+  - `pkgname`, `pkgver`, `pkgdesc`, `url`, and `license`: package related metadata
   - `srcdir`: directory to download souce code
   - `builddir`: directory for building package
   - `pkgdir`: directory to install compiled code
@@ -29,10 +29,11 @@ Here is an example of `BUILD` script for `ripgrep`, a Rust grep tool.
 pkgname=ripgrep
 pkgver=
 pkgdesc="ripgrep combines the usability of The Silver Searcher with the raw speed of grep."
+url="https://github.com/BurntSushi/ripgrep"
 license=(MIT Unlicense)
 
 prepare() {
-  git clone https://github.com/BurntSushi/ripgrep.git "$srcdir"
+  git clone -b 0.7.1 https://github.com/BurntSushi/ripgrep.git "$srcdir"
 }
 
 build() {
@@ -50,4 +51,4 @@ Mingshen Sun `<sunmingshen@baidu.com>`
 
 ## License
 
-The MesaLock Linux Packages project is provided under the BSD license.
+The MesaLock Linux Packages project is provided under the [BSD license](LICENSE).
