@@ -4,7 +4,8 @@ pkgdesc="init tool written in Rust."
 license=(BSD)
 
 prepare() {
-  git clone -b 685ada71ce42469cc6e5995e7faef475062b493c https://github.com/mesalock-linux/minit.git "$srcdir"
+  git clone https://github.com/mesalock-linux/minit.git "$srcdir"
+  cd "$srcdir" && git checkout -b 685ada71ce42469cc6e5995e7faef475062b493c
 }
 
 build() {

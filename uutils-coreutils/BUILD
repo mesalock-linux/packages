@@ -5,7 +5,8 @@ url="https://github.com/uutils/coreutils"
 license=(MIT)
 
 prepare() {
-  git clone -b 4e034b02bd959e7a66eacbfdf16882814e8cbccb https://github.com/uutils/coreutils.git "$srcdir"
+  git clone https://github.com/uutils/coreutils.git "$srcdir"
+  cd "$srcdir" && git checkout -b 4e034b02bd959e7a66eacbfdf16882814e8cbccb
   cp "$pkgrepo"/"$pkgname"/001-makefile-libstdbuf.patch "$srcdir"
 }
 

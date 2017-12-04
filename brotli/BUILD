@@ -5,7 +5,8 @@ url="https://github.com/dropbox/rust-brotli"
 license=(BSD)
 
 prepare() {
-  git clone -b c8ad81e7ad5a33b18b284a058f33d34bec27fea3 https://github.com/dropbox/rust-brotli.git "$srcdir"
+  git clone https://github.com/dropbox/rust-brotli.git "$srcdir"
+  cd "$srcdir" && git checkout -b c8ad81e7ad5a33b18b284a058f33d34bec27fea3
 }
 
 build() {

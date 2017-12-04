@@ -4,7 +4,8 @@ pkgdesc="getty written in Rust."
 license=(BSD)
 
 prepare() {
-  git clone -b fd191a6a3d0cab40cf1342bdf9766a08147bfb33 https://github.com/mesalock-linux/mgetty.git "$srcdir"
+  git clone https://github.com/mesalock-linux/mgetty.git "$srcdir"
+  cd "$srcdir" && git checkout -b fd191a6a3d0cab40cf1342bdf9766a08147bfb33
 }
 
 build() {

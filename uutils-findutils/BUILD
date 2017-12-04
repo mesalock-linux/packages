@@ -5,7 +5,8 @@ url="https://github.com/uutils/findutils"
 license=(MIT)
 
 prepare() {
-  git clone -b 2e6a268fa5682fc9ee07f8f8b9634051f6c0ef6f https://github.com/uutils/findutils.git "$srcdir"
+  git clone https://github.com/uutils/findutils.git "$srcdir"
+  cd "$srcdir" && git checkout -b 2e6a268fa5682fc9ee07f8f8b9634051f6c0ef6f
 }
 
 build() {

@@ -4,7 +4,8 @@ pkgdesc="iproute2 written in Golang."
 license=(BSD)
 
 prepare() {
-  git clone -b 2e6eb9e88d50617db5c5540c7e6a623144d4698a https://github.com/mesalock-linux/giproute2.git "$srcdir"
+  git clone https://github.com/mesalock-linux/giproute2.git "$srcdir"
+  cd "$srcdir" && git checkout -b 2e6eb9e88d50617db5c5540c7e6a623144d4698a
 }
 
 build() {
