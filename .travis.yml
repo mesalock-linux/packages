@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker pull mesalocklinux/build-mesalock-linux
+  - git clone -b develop https://github.com/mesalock-linux/mesalock-distro.git ../mesalock-distro
+
+script:
+  - ./.travis/build-pkgs
