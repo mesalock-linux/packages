@@ -4,6 +4,7 @@ set -e
 
 MESALOCK_PACKAGES_DIR="$(pwd)"
 MESALOCK_LINUX_DIR="$(dirname $MESALOCK_PACKAGES_DIR)"
+MESALOCK_DISTRO_DIR="$MESALOCK_LINUX_DIR/mesalock-distro"
 
 changed_pkgs() {
 	local repo="$1"
@@ -51,7 +52,7 @@ git --no-pager diff --color --stat "$commit_range"
 
 for pkgname in $(changed_pkgs "$MESALOCK_LINUX_PACKAGES" "$commit_range"); do
     echo $pkgname
-    docker run -v "$MESALOCK_LINUX_DIR":/mesalock-linux -w /mesalock-linux/mesalock-distro -it mesalocklinux/build-mesalock-linux /bin/bash -c "./mkpkg $pkgname"
+    cd $MESALOCK_DISTRO_DIR && ./mkpkg $pkgname
     if [ $? -eq 0 ]; then
         successful_pkgs="$successful_pkgs $pkgname"
     else
