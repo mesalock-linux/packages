@@ -4,6 +4,14 @@ To ensure the safty and security of the user space environment, unlike other
 Linux distributions, packages in MesaLock Linux are written in memory-safe
 language (e.g., Rust and Go).
 
+## Categories
+
+There are four categories of all packages:
+  - `core`: core packages to bootstrap the system
+  - `community`: packages from community
+  - `core-testing`: new core packages or new version for trying and testing
+  - `community-testing`: new community packages or new version for trying and testing
+
 ## Contributing
 
 A package consist of a `BUILD` script and related files and patches. It is very
