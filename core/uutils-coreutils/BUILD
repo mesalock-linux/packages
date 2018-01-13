@@ -6,13 +6,11 @@ license=(MIT)
 
 prepare() {
   git clone https://github.com/uutils/coreutils.git "$srcdir"
-  cd "$srcdir" && git checkout -b 4e034b02bd959e7a66eacbfdf16882814e8cbccb
-  cp "$pkgrepo"/"$pkgname"/001-makefile-libstdbuf.patch "$srcdir"
+  cd "$srcdir" && git checkout -b 72b4629916abe0852ad27286f4e307fbca546b6e
 }
 
 build() {
-  cd "$srcdir"
-  git apply 001-makefile-libstdbuf.patch
+  :
 }
 
 package() {
