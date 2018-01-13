@@ -1,5 +1,7 @@
 # MesaLock Linux Packages
 
+[![Build Status](https://ci.mesalock-linux.org/api/badges/mesalock-linux/packages/status.svg?branch=master)](https://ci.mesalock-linux.org/mesalock-linux/packages)
+
 To ensure the safty and security of the user space environment, unlike other
 Linux distributions, packages in MesaLock Linux are written in memory-safe
 language (e.g., Rust and Go).
