@@ -14,6 +14,11 @@ There are four categories of all packages:
   - `core-testing`: new core packages or new version for trying and testing
   - `community-testing`: new community packages or new version for trying and testing
 
+Basically, `core` packages are essential packages to bootstrap the system and
+have the basic function. `community` packages are other nice-to-have packages
+written in Rust/Go. And `core-testing` and `community-testing` will aggressively
+use latest version or newer version code for testing.
+
 ## Contributing
 
 A package consist of a `BUILD` script and related files and patches. It is very
