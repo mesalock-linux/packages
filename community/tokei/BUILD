@@ -1,11 +1,11 @@
 pkgname=tokei
-pkgver=6.1.2
+pkgver=7.0.0
 pkgdesc="A program that allows you to count your code, quickly."
 url="https://github.com/Aaronepower/tokei"
 license=(MIT Apache-2.0)
 
 prepare() {
-  git clone -b v6.1.2 https://github.com/Aaronepower/tokei.git "$srcdir"
+  git clone -b v7.0.0 https://github.com/Aaronepower/tokei.git "$srcdir"
 }
 
 build() {
