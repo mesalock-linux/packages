@@ -1,5 +1,5 @@
 pkgname=ion-shell
-pkgver=
+pkgver=1.0.5
 pkgdesc="ion shell, a shell written in Rust."
 url="https://github.com/redox-os/ion"
 license=(MIT)
