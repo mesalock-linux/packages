@@ -5,7 +5,7 @@ license=(BSD)
 
 prepare() {
   # Rocket
-  git clone -b v0.3.3 https://github.com/SergioBenitez/Rocket.git "$srcdir"/Rocket
+  git clone -b v0.3.6 https://github.com/SergioBenitez/Rocket.git "$srcdir"/Rocket
   cp -r "$pkgrepo"/"$pkgname"/Rocket.toml "$srcdir"/Rocket
 
   # Rusty-machine
