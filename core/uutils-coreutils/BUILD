@@ -6,7 +6,7 @@ license=(MIT)
 
 prepare() {
   git clone https://github.com/uutils/coreutils.git "$srcdir"
-  cd "$srcdir" && git checkout -b 72b4629916abe0852ad27286f4e307fbca546b6e
+  cd "$srcdir" && git checkout -b 2db220e8201ea62e4cd343da45152319c8525e38
 }
 
 build() {
