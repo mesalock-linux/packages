@@ -5,7 +5,8 @@ url="https://github.com/BurntSushi/ripgrep"
 license=(MIT Unlicense)
 
 prepare() {
-  git clone -b 0.7.1 https://github.com/BurntSushi/ripgrep.git "$srcdir"
+  git clone https://github.com/BurntSushi/ripgrep.git "$srcdir"
+  cd "$srcdir" && git checkout -b 35f802166d1c5788e8c833f398d13b9c9e8cb360
 }
 
 build() {
