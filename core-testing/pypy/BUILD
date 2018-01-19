@@ -1,6 +1,8 @@
 pkgname=pypy
 pkgver=5.10.0
-pkgdesc="PyPy is a fast, compliant alternative implementation of the Python language (2.7.13 and 3.5.3)."
+pkgdesc="PyPy is a fast, compliant alternative implementation of the Python
+language (2.7.13 and 3.5.3). Note that this is a tailored version. We exclude
+some modules which need native libraries written in C/C++."
 url="https://pypy.org/index.html"
 license=(MIT)
 
