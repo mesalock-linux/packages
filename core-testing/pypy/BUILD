@@ -14,7 +14,7 @@ prepare() {
 build() {
   cd "$srcdir"/pypy2-v${pkgver}-src/pypy/goal
 
-  ../../rpython/bin/rpython -Ojit targetpypystandalone.py \
+  ../../rpython/bin/rpython -Ojit --make-jobs=$(nproc) targetpypystandalone.py \
     --withoutmod-_cffi_backend \
     --withoutmod-zipimport \
     --withoutmod-_minimal_curses \
