@@ -41,7 +41,6 @@ package() {
           --without-resource \
           --without-sqlite3 \
           --without-syslog \
-          --without-syslog \
           --without-tk
   mkdir unpacked
   tar xf pypy.tar.bz2 -C unpacked
