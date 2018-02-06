@@ -13,6 +13,11 @@ build() {
   cd "$srcdir" && ./compile
 }
 
+check() {
+  cd "$srcdir"
+  cargo test
+}
+
 package() {
   install -D "$srcdir"/target/release/rg -t "$pkgdir"/bin/
 }
