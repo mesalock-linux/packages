@@ -14,6 +14,11 @@ build() {
   cargo install --root "$pkgdir" && rm -f "$pkgdir"/.crates.toml
 }
 
+check() {
+  cd "$srcdir"
+  cargo test
+}
+
 package() {
   ln -s ion "$pkgdir"/bin/sh
 }
