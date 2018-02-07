@@ -43,7 +43,8 @@ failed_pkgs=''
 successful_pkgs=''
 
 cd "$MESALOCK_PACKAGES_DIR"
-commit_range="$(echo "${TRAVIS_COMMIT_RANGE:-}" | sed -E 's/\.{3}/../')"
+DRONE_COMMIT_RANGE="${DRONE_PREV_COMMIT_SHA}..${DRONE_COMMIT_SHA}"
+commit_range="$(echo "${DRONE_COMMIT_RANGE:-}" | sed -E 's/\.{3}/../')"
 if ! git rev-parse "$commit_range" >/dev/null 2>&1; then
 	commit_range="$(git rev-parse HEAD^1)..HEAD"
 fi
