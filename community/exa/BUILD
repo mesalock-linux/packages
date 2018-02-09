@@ -8,10 +8,6 @@ prepare() {
   git clone -b v0.8.0 https://github.com/ogham/exa.git "$srcdir"
 }
 
-check() {
-  cd "$srcdir" && cargo test
-}
-
 build() {
   cd "$srcdir" && cargo install --no-default-features --root "$pkgdir" && rm -f "$pkgdir/.crates.toml"
 }
