@@ -1,0 +1,71 @@
+#!/bin/sh
+
+set -e
+
+MESALOCK_PACKAGES_DIR="$(pwd)"
+MESALOCK_LINUX_DIR="$(dirname $MESALOCK_PACKAGES_DIR)"
+MESALOCK_DISTRO_DIR="$MESALOCK_LINUX_DIR/mesalock-distro"
+
+changed_pkgs() {
+	local repo="$1"
+	local commit_ish="$2"
+
+	# Get names of repo's subdirectories with modified APKBUILD,
+	# but ignore deleted ones.
+	local pkgs="$(git diff-tree -r --relative="$repo" --name-only --diff-filter=ACMR \
+					"$commit_ish" -- '*BUILD' | xargs -I% dirname % | xargs)"
+    echo "$pkgs"
+}
+
+die() {
+	print -s1 -c1 "$@\n" 1>&2
+	exit 1
+}
+
+print() {
+	local style=0
+	local fcolor=9
+
+	local opt; while getopts 's:c:' opt; do
+		case "$opt" in
+			s) style="$OPTARG";;
+			c) fcolor="$OPTARG";;
+		esac
+	done
+
+	shift $(( OPTIND - 1 ))
+	local text="$@"
+
+	printf "\033[${style};3${fcolor}m$text\033[0m"
+}
+
+failed_pkgs=''
+successful_pkgs=''
+
+cd "$MESALOCK_PACKAGES_DIR"
+DRONE_COMMIT_RANGE="${DRONE_PREV_COMMIT_SHA}..${DRONE_COMMIT_SHA}"
+commit_range="$(echo "${DRONE_COMMIT_RANGE:-}" | sed -E 's/\.{3}/../')"
+if ! git rev-parse "$commit_range" >/dev/null 2>&1; then
+	commit_range="$(git rev-parse HEAD^1)..HEAD"
+fi
+
+git --no-pager diff --color --stat "$commit_range"
+
+for pkgname in $(changed_pkgs "$MESALOCK_LINUX_PACKAGES" "$commit_range"); do
+    echo $pkgname
+    cd $MESALOCK_DISTRO_DIR && ./mkpkg $pkgname
+    if [ $? -eq 0 ]; then
+        successful_pkgs="$successful_pkgs $pkgname"
+    else
+        failed_pkgs="$failed_pkgs $pkgname"
+    fi
+done
+
+if [ -n "$successful_pkgs" ]; then
+	print -s1 -c2 "Successfully build packages:$successful_pkgs\n"
+fi
+if [ -n "$failed_pkgs" ]; then
+	die "Failed to build packages:$failed_pkgs"
+elif [ -z "$successful_pkgs" ]; then
+	print -s1 -c3 'No packages found to be built.'
+fi

@@ -5,7 +5,11 @@ url="https://github.com/sharkdp/fd"
 license=(MIT Apache-2.0)
 
 prepare() {
-  git clone -b v6.0.0 https://github.com/sharkdp/fd.git "$srcdir"
+  git clone -b v6.2.0 https://github.com/sharkdp/fd.git "$srcdir"
+}
+
+check() {
+  cd "$srcdir" && cargo test
 }
 
 build() {

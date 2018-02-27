@@ -6,7 +6,11 @@ license=(BSD)
 
 prepare() {
   git clone https://github.com/dropbox/rust-brotli.git "$srcdir"
-  cd "$srcdir" && git checkout -b c8ad81e7ad5a33b18b284a058f33d34bec27fea3
+  cd "$srcdir" && git checkout -b e275374e6c5ae49e5a33d0e3145da523194a6a97
+}
+
+check() {
+  cd "$srcdir" && cargo test
 }
 
 build() {

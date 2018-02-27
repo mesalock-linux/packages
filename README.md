@@ -1,8 +1,23 @@
 # MesaLock Linux Packages
 
+[![Build Status](https://ci.mesalock-linux.org/api/badges/mesalock-linux/packages/status.svg?branch=master)](https://ci.mesalock-linux.org/mesalock-linux/packages)
+
 To ensure the safty and security of the user space environment, unlike other
 Linux distributions, packages in MesaLock Linux are written in memory-safe
 language (e.g., Rust and Go).
+
+## Categories
+
+There are four categories of all packages:
+  - `core`: core packages to bootstrap the system
+  - `community`: packages from community
+  - `core-testing`: new core packages or new version for trying and testing
+  - `community-testing`: new community packages or new version for trying and testing
+
+Basically, `core` packages are essential packages to bootstrap the system and
+have the basic function. `community` packages are other nice-to-have packages
+written in Rust/Go. And `core-testing` and `community-testing` will aggressively
+use latest version or newer version code for testing.
 
 ## Contributing
 
@@ -47,7 +62,7 @@ package() {
 
 ## Maintainer
 
-Mingshen Sun `<sunmingshen@baidu.com>`
+  - Mingshen Sun `<mssun@mesalock-linux.org>` [@mssun](https://github.com/mssun)
 
 ## License
 
