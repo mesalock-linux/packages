@@ -1,0 +1,16 @@
+package:
+  name: uutils-coreutils
+  version: 0.1.0
+  description: Cross-platform Rust rewrite of the GNU coreutils
+  license: [MIT]
+  url: https://github.com/uutils/coreutils
+
+  source:
+    - git+https://github.com/uutils/coreutils.git
+
+  prepare:
+    - cd coreutils.git && git checkout -B 4d89c2d79602e1b166a455bef6785466efdcf137
+
+  build:
+    # skip hashsum and expr because it depends on rust-crypto (with C library)
+    - cd coreutils.git && make MULTICALL=y SKIP_UTILS='hashsum expr' PREFIX="$pkgdir" install
