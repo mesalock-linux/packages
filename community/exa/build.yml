@@ -1,0 +1,18 @@
+package:
+  name: exa
+  version: 0.8.0
+  description: "Replacement for 'ls' written in Rust"
+  license: [MIT]
+  url: "https://the.exa.website/"
+
+  source:
+    - git+https://github.com/ogham/exa.git
+
+  prepare:
+    - cd "$name".git && git checkout -B v0.8.0
+
+  check:
+    - cd "$name".git && cargo test
+
+  install:
+    - cd "$name".git && cargo install --root "$pkgdir" && rm -f "$pkgdir"/.crates.toml
