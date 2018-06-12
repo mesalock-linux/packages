@@ -1,0 +1,17 @@
+package:
+  name: mgetty
+  version: 0.1.0
+  description: getty written in Rust
+  license: [BSD]
+
+  source:
+    - git+https://github.com/mesalock-linux/$name.git
+
+  prepare:
+    - cd "$name".git && git checkout -B fd191a6a3d0cab40cf1342bdf9766a08147bfb33
+
+  build:
+    - cd "$name".git && cargo build --release
+
+  install:
+    - cd "$name".git && install -D -m744 target/release/"$name" "$pkgdir"/bin/"$name"
