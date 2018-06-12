@@ -1,0 +1,17 @@
+package:
+  name: minit 
+  version: 0.1.0
+  description: init tool written in Rust
+  license: [BSD]
+
+  source:
+    - git+https://github.com/mesalock-linux/$name.git
+
+  prepare:
+    - cd "$name".git && git checkout -B 685ada71ce42469cc6e5995e7faef475062b493c
+
+  build:
+    - cd "$name".git && cargo build --release
+
+  install:
+    - cd "$name".git && install -D -m744 target/release/"$name" "$pkgdir"/bin/"$name"
