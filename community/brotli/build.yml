@@ -1,0 +1,18 @@
+package:
+  name: brotli
+  version: 0.1.0
+  description: Brotli compression format
+  license: [BSD]
+  url: https://github.com/dropbox/rust-brotli.git
+
+  source:
+    - git+https://github.com/dropbox/rust-brotli.git
+
+  prepare:
+    - cd rust-brotli.git && git checkout -B 2e6a268fa5682fc9ee07f8f8b9634051f6c0ef6f
+
+  check:
+    - cd rust-brotli.git && cargo test
+
+  install:
+    - cd rust-brotli.git && cargo install --root "$pkgdir" && rm -f "$pkgdir"/.crates.toml
