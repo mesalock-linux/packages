@@ -1,0 +1,17 @@
+package:
+  name: giproute2
+  version: 0.1.0
+  description: iproute2 written in Golang
+  license: [BSD]
+
+  source:
+    - git+https://github.com/mesalock-linux/giproute2.git
+
+  prepare:
+    - cd giproute2.git && git checkout -b 2e6eb9e88d50617db5c5540c7e6a623144d4698a
+
+  build:
+    - cd giproute2.git && make
+
+  install:
+    - install -D giproute2.git/ip -t "$pkgdir"/bin/
