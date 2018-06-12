@@ -1,0 +1,15 @@
+package:
+  name: busybox
+  version: 1.27.2
+  description: "BusyBox: The Swiss Army Knife of Embedded Linux. Mesalock Linux uses BusyBox for testing only"
+  license: [GPL2]
+
+  source:
+    - http://busybox.net/downloads/$name-$version.tar.bz2
+
+  build:
+    - make -C "$builddir/${name}-${version}" O=$builddir ARCH="x86_64" defconfig
+    - make
+
+  install:
+    - install -D -m755 busybox "$pkgdir"/bin/busybox
