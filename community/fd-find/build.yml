@@ -1,0 +1,18 @@
+package:
+  name: fd-find
+  version: 6.2.0
+  description: "A simple, fast and user-friendly alternative to find"
+  license: [MIT, Apache-2.0]
+  url: "https://github.com/sharkdp/fd"
+
+  source:
+    - git+https://github.com/sharkdp/fd.git
+
+  prepare:
+    - cd fd.git && git checkout -B v6.2.0
+
+  check:
+    - cd fd.git && cargo test
+
+  install:
+    - cd fd.git && cargo install --root "$pkgdir" && rm -f "$pkgdir"/.crates.toml
