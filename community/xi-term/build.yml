@@ -1,0 +1,21 @@
+package:
+  name: xi-term
+  version: 0.1.0
+  description: "A terminal frontend for Xi"
+  license: [MIT]
+  url: "https://github.com/xi-frontend/xi-term"
+
+  source:
+    - git+https://github.com/xi-frontend/xi-term.git
+
+  prepare:
+    - cd xi-term.git && git checkout -B 0d43e263b21dc88c5826264672dc5543366fbceb
+
+  check:
+    - cd xi-term.git && cargo test
+
+  build:
+    - cd xi-term.git && cargo build --release
+
+  install:
+    - install -D "$name".git/target/release/xi-term -t "$pkgdir"/bin/
