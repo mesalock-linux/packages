@@ -1,0 +1,21 @@
+package:
+  name: xi-core
+  version: 0.1.0
+  description: "A modern editor with a backend written in Rust"
+  license: [Apache-2.0]
+  url: "https://github.com/google/xi-editor"
+
+  source:
+    - git+https://github.com/google/xi-editor.git
+
+  prepare:
+    - cd xi-editor.git && git checkout -B 176c4002d873393b408fafc17fcbed0fc46b5057
+
+  check:
+    - cd xi-editor.git/rust && cargo test
+
+  build:
+    - cd xi-editor.git/rust && cargo build --release
+
+  install:
+    - install -D xi-editor.git/rust/target/release/xi-core -t "$pkgdir"/bin/
