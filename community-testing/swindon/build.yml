@@ -1,0 +1,18 @@
+package:
+  name: swindon
+  version: 0.1.0
+  description: "Replacement for 'ls' written in Rust"
+  license: [MIT]
+  url: "https://the.exa.website/"
+
+  source:
+    - git+https://github.com/swindon-rs/swindon.git
+
+  prepare:
+    - cd "$name".git && git checkout -B 112d325144ea437be6e5ef38019fffce794ae788
+
+  check:
+    - cd "$name".git && cargo test
+
+  install:
+    - cd "$name".git && cargo install --root "$pkgdir" && rm -f "$pkgdir"/.crates.toml
