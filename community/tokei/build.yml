@@ -1,0 +1,18 @@
+package:
+  name: tokei
+  version: 7.0.1
+  description: "A program that allows you to count your code, quickly"
+  license: [MIT, Apache-2.0]
+  url: "https://github.com/Aaronepower/tokei"
+
+  source:
+    - git+https://github.com/Aaronepower/tokei.git
+
+  prepare:
+    - cd "$name".git && git checkout -B v7.0.1
+
+  check:
+    - cd "$name".git && cargo test
+
+  install:
+    - cd "$name".git && cargo install --root "$pkgdir" && rm -f "$pkgdir"/.crates.toml
