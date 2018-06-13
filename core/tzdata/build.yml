@@ -3,6 +3,7 @@ package:
   version: 1.0.0-2017b
   description: Timezone data
   license: [Unlicense]
+  skip_check: true
 
   source:
     - https://www.iana.org/time-zones/repository/releases/tzdata2017b.tar.gz

@@ -3,6 +3,7 @@ package:
   version: 0.1.0
   description: Mesalock Linux base filesystem layout
   license: [BSD]
+  skip_check: true
 
   source:
     - build.yml

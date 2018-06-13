@@ -4,6 +4,7 @@ package:
   description: Cross-platform Rust rewrite of the GNU coreutils
   license: [MIT]
   url: https://github.com/uutils/coreutils
+  skip_check: true
 
   source:
     - git+https://github.com/uutils/coreutils.git

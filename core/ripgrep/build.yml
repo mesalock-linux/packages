@@ -4,6 +4,7 @@ package:
   description: ripgrep combines the usability of The Silver Searcher with the raw speed of grep
   license: [MIT, Unlicense]
   url: https://github.com/BurntSushi/ripgrep
+  skip_check: true
 
   source:
     - git+https://github.com/BurntSushi/$name.git

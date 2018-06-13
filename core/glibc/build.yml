@@ -6,6 +6,7 @@ package:
   name: glibc
   version: $pkgver.$pkgpatch
   description: Glibc
+  skip_check: true
   license:
     - GPL
     - LGPL

@@ -4,6 +4,7 @@ package:
   description: GLibc library, only libgcc_s.so is used
   license: [GPL, LGPL]
   skip_extract: true
+  skip_check: true
 
   source:
     - https://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz

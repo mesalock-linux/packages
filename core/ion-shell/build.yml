@@ -4,12 +4,13 @@ package:
   description: ion shell, a shell written in Rust
   license: [MIT]
   url: https://github.com/redox-os/ion
+  skip_check: true
 
   source:
     - git+https://github.com/redox-os/ion.git
 
   prepare:
-    - cd ion.git && git checkout -b 1.0.5
+    - cd ion.git && git checkout -B 1.0.5
 
   build:
     - |

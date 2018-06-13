@@ -1,21 +1,9 @@
-# pkgname=init
-# pkgdesc="init script"
-# license=(BSD)
-# 
-# prepare() {
-#   cp -r "$pkgrepo/$pkgname"/* $srcdir
-# }
-# 
-# package() {
-#   cd "$pkgdir"
-#   install -D -m744 "$srcdir"/init "$pkgdir"/init
-# }
-
 package:
   name: init
   version: 0.1.0
   description: init script
   license: [BSD]
+  skip_check: true
 
   source:
     - init
