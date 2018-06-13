@@ -1,0 +1,23 @@
+package:
+  name: mesalock-demo
+  version: 0.1.0
+  description: "Several demos of Mesalock Linux"
+  license: [BSD]
+
+  source:
+    - git+https://github.com/AtheMathmo/rusty-machine.git
+
+  prepare:
+    - cd rusty-machine.git && git checkout -B v0.5.4
+
+  check:
+    - cd rusty-machine.git && cargo test
+
+  build:
+    - cd rusty-machine.git && cargo build --examples --release
+
+  install:
+    - |
+      for f in k-means_generating_cluster naive_bayes_dogs nnet-and_gate svm-sign_learner; do
+          install -D -m755 rusty-machine.git/target/release/examples/$f -t "$pkgdir"/root/mesalock-demo/rusty-machine/
+      done
