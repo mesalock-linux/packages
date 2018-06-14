@@ -2,6 +2,7 @@ package:
   name: busybox
   version: 1.27.2
   description: "BusyBox: The Swiss Army Knife of Embedded Linux. Mesalock Linux uses BusyBox for testing only"
+  skip_check: true
   license: [GPL2]
 
   source:

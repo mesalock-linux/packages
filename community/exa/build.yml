@@ -2,6 +2,7 @@ package:
   name: exa
   version: 0.8.0
   description: "Replacement for 'ls' written in Rust"
+  skip_check: true
   license: [MIT]
   url: "https://the.exa.website/"
 
@@ -10,9 +11,6 @@ package:
 
   prepare:
     - cd "$name".git && git checkout -B v0.8.0
-
-  check:
-    - cd "$name".git && cargo test
 
   install:
     - cd "$name".git && cargo install --root "$pkgdir" && rm -f "$pkgdir"/.crates.toml
