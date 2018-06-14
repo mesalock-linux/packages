@@ -3,8 +3,7 @@
 set -e
 
 MESALOCK_PACKAGES_DIR="$(pwd)"
-MESALOCK_LINUX_DIR="$(dirname $MESALOCK_PACKAGES_DIR)"
-MESALOCK_DISTRO_DIR="$MESALOCK_LINUX_DIR/mesalock-distro"
+MESALOCK_MKPKG_DIR="$(pwd)"/mkpkg
 
 changed_pkgs() {
 	local repo="$1"
@@ -13,7 +12,7 @@ changed_pkgs() {
 	# Get names of repo's subdirectories with modified APKBUILD,
 	# but ignore deleted ones.
 	local pkgs="$(git diff-tree -r --relative="$repo" --name-only --diff-filter=ACMR \
-					"$commit_ish" -- '*BUILD' | xargs -I% dirname % | xargs)"
+					"$commit_ish" -- '*build.yml' | xargs)"
     echo "$pkgs"
 }
 
@@ -50,10 +49,15 @@ if ! git rev-parse "$commit_range" >/dev/null 2>&1; then
 fi
 
 git --no-pager diff --color --stat "$commit_range"
+ret=$(changed_pkgs "$MESALOCK_LINUX_PACKAGES" "$commit_range")
+if [  "$ret" != "" ]; then
+    cd "$MESALOCK_MKPKG_DIR" && cargo build --release
+fi
 
+cd "$MESALOCK_PACKAGES_DIR"
 for pkgname in $(changed_pkgs "$MESALOCK_LINUX_PACKAGES" "$commit_range"); do
     echo $pkgname
-    cd $MESALOCK_DISTRO_DIR && ./mkpkg $pkgname
+    cd $MESALOCK_PACKAGES_DIR && "$MESALOCK_MKPKG_DIR"/target/release/mkpkg build $pkgname
     if [ $? -eq 0 ]; then
         successful_pkgs="$successful_pkgs $pkgname"
     else
