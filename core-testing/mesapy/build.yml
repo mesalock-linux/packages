@@ -9,7 +9,10 @@ package:
     - git+https://github.com/mesalock-linux/mesapy.git
 
   build:
-    - cd mesapy.git && make
+    - |
+      cd mesapy.git
+      git submodule update --init
+      make
 
   install:
     - |
