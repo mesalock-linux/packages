@@ -28,13 +28,13 @@ package:
       tar xf mesapy.tar.bz2 -C unpacked
 
       # Install pypy
-      pushd unpacked
+      cd unpacked
       install -Dm755 mesapy/bin/mesapy "${pkgdir}"/opt/mesapy/bin/mesapy
       install -Dm755 mesapy/bin/libpypy-c.so "${pkgdir}"/opt/mesapy/bin/libpypy-c.so
       install -Dm755 mesapy/bin/libminiz_oxide_c_api.so \
         "${pkgdir}"/opt/mesapy/bin/libminiz_oxide_c_api.so
       cp -r mesapy/include mesapy/lib_pypy mesapy/lib-python mesapy/site-packages "${pkgdir}"/opt/mesapy/
-      popd
+      cd ..
 
       # Install symlink
       mkdir -p "${pkgdir}"/usr/bin "${pkgdir}"/usr/lib
