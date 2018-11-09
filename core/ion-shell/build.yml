@@ -16,7 +16,7 @@ package:
     - |
       cd ion.git
       cargo update -p liner # make sure liner is updated regardless of Cargo.lock
-      cargo +nightly-2018-05-30 install --root "$pkgdir" && rm -f "$pkgdir"/.crates.toml
+      cargo +nightly-2018-10-24 install --root "$pkgdir" && rm -f "$pkgdir"/.crates.toml
 
   install:
     - ln -s ion "$pkgdir"/bin/sh
