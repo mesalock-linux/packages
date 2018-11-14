@@ -1,15 +1,14 @@
-pipeline:
-  prepare:
-    image: plugins/git
-    commands:
-      - git clone https://github.com/mesalock-linux/mkpkg.git
-  build-packages:
-    image: mesalocklinux/build-mesalock-linux
-    pull: true
-    commands:
-      - ./.drone/build-pkgs
-  notify:
-    image: drillster/drone-email
-    secrets: [ plugin_host, plugin_username, plugin_password, plugin_from ]
-    when:
-      status: [ success, changed, failure ]
+kind: pipeline
+name: default
+
+steps:
+- name: prepare
+  image: plugins/git
+  commands:
+  - git clone https://github.com/mesalock-linux/mkpkg.git
+
+- name: build-packages
+  image: mesalocklinux/build-mesalock-linux
+  pull: always
+  commands:
+  - ./.drone/build-pkgs
