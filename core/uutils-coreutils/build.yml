@@ -10,7 +10,7 @@ package:
     - git+https://github.com/uutils/coreutils.git
 
   prepare:
-    - cd coreutils.git && git checkout -B 4d89c2d79602e1b166a455bef6785466efdcf137
+    - cd coreutils.git && git checkout -B 13e57616b41fc3d5fd789bcc95dc46a239473979
 
   build:
     # skip hashsum and expr because it depends on rust-crypto (with C library)
