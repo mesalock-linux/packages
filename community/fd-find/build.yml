@@ -12,7 +12,7 @@ package:
     - cd fd.git && git checkout -B v6.2.0
 
   check:
-    - cd fd.git && cargo test
+    - cd fd.git && cargo +nightly-2018-10-24 test
 
   install:
-    - cd fd.git && cargo install --root "$pkgdir" && rm -f "$pkgdir"/.crates.toml
+    - cd fd.git && cargo +nightly-2018-10-24 install --root "$pkgdir" && rm -f "$pkgdir"/.crates.toml

@@ -12,10 +12,11 @@ package:
     - cd xi-editor.git && git checkout -B 176c4002d873393b408fafc17fcbed0fc46b5057
 
   check:
-    - cd xi-editor.git/rust && cargo test
+    - cd xi-editor.git/rust && cargo +nightly-2018-10-24 test
 
   build:
-    - cd xi-editor.git/rust && cargo build --release
+    - cd xi-editor.git/rust && cargo +nightly-2018-10-24 build --release
 
   install:
     - install -D xi-editor.git/rust/target/release/xi-core -t "$pkgdir"/bin/
+
